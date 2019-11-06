@@ -1,21 +1,16 @@
 def monkey_count(n)
-# if i == n
-#   return [i]
-# else
-#   return [i, n+1]
-#   end
-# end
-
-
-
   i = 1
+  array = []
   while i <= n do
-    return "#{i}"
+    array << i
     i += 1
   end
+  return array
 end
 
-
+def monkey_count(number)
+  (1..number).to_a
+end
 
 p monkey_count(5)
  # [1, 2, 3, 4, 5])
