@@ -8,6 +8,7 @@
 #     return array[a -= 1].sum until a == b
 #     end
 # end
+#
 # def get_sum(a,b)
 # arr = []
 # i = 0
@@ -17,13 +18,15 @@
 #     while i < b do
 #         arr << a + i
 #        i += 1
-#       return arr
 #       end
+#       return arr
 #     # end
 #     #   return  a
 #     # elsif
 #     #   return array[a -= 1].sum until a == b
 # end
+
+
 
 def get_sum(a,b)
 sum = 0
@@ -44,7 +47,7 @@ end
 
 
 
-p get_sum(8,1)
+p get_sum(1,8)
 # ,1
 # get_sum(0,-1),-1
 # get_sum(1,2),3
