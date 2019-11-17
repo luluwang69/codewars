@@ -1,7 +1,7 @@
 def find_short(s)
 arr = []
   s.split.each do |x|
-    arr << x.length.to_i
+    arr << x.length
   end
   l = arr.sort
   return l[0]
