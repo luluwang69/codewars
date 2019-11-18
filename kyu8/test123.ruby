@@ -9,6 +9,12 @@ return arr
 end
 
 
+# def number lines
+#   lines.each_with_index.map do |line, index|
+#     "#{index + 1}: #{line}"
+#   end
+# end
+
 
 
 
