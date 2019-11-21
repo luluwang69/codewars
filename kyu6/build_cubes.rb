@@ -30,16 +30,16 @@
 #   end
 # end
 
-# def find_nb(m)
-#   i = 0
-#   curr_sum = 0
-#   while true
-#     return i if curr_sum == m
-#     return -1 if curr_sum > m
-#     i = i + 1
-#     curr_sum = curr_sum + i**3
-#   end
-# end
+def find_nb(m)
+  i = 0
+  curr_sum = 0
+  while true
+    return i if curr_sum == m
+    return -1 if curr_sum > m
+    i = i + 1
+    curr_sum = curr_sum + i**3
+  end
+end
 
 
 

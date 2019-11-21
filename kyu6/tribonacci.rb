@@ -1,6 +1,5 @@
 def tribonacci(signature,n)
 i = 0
-
   if n == 0
     return []
     # until signature.count == n do
@@ -19,8 +18,13 @@ i = 0
 end
 
 
-
-
+# good answer
+# def tribonacci(s, n)
+#   for i in 3..n
+#     s[i] = s[i-1] + s[i-2] + s[i-3]
+#   end
+#   return s.slice(0, n)
+# end
 
 
 
