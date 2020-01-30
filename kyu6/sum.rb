@@ -40,10 +40,13 @@ def convert_to_negatives(digits)
 end
 
 def convert_to_num(digits)
-  if digits[0] > 0
+   digits.pop until digits.last != 0
+  if  digits.last > 0
     return digits.reverse.join.to_i
-  else
-    return "#{digits[0].to_s[0]}1".to_i * digits.map{|e|e.abs}.reverse.join.to_i
+  elsif digits.last < 0
+    return "#{digits.last.to_s[0]}1".to_i * digits.map{|e|e.abs}.reverse.join.to_i
+  elsif digits.empty?
+    return 0
   end
 end
 
@@ -58,8 +61,8 @@ def add(x, y)
       a.to_i
     end
   end
-   x_digits.delete(x_digits.last) if x < 0
-
+   x_digits.pop if x < 0
+    # p x_digits
 
   y_digits = y.to_s.reverse.split("").map do |a|
     if y < 0
@@ -68,9 +71,8 @@ def add(x, y)
       a.to_i
     end
   end
-  y_digits.delete(y_digits.last) if y < 0
-
-
+  y_digits.pop if y < 0
+    # p y_digits
   result = []
   carry_over = 0
 
@@ -81,7 +83,7 @@ def add(x, y)
     if curr_res.to_i >= 10
       result << curr_res[1].to_i
       carry_over = curr_res[0].to_i
-    elsif curr_res.to_i <= -10
+    elsif curr_res.to_i < 0 && curr_res.to_i <= "#{curr_res[0]}10".to_i
       result << "#{curr_res[0]}#{curr_res[2]}".to_i
       carry_over = "#{curr_res[0]}#{curr_res[1]}".to_i
     else
@@ -89,12 +91,15 @@ def add(x, y)
       carry_over = 0
     end
   end
-
   result << carry_over if carry_over != 0
 
-  if result.last > 0
+  result.pop until result.last != 0
+
+  if result.empty?
+    return 0
+    elsif result.last > 0
     result = convert_to_positives(result)
-  else
+   elsif result.last < 0
     result = convert_to_negatives(result)
   end
 
@@ -105,14 +110,22 @@ end
 
  # p add(123,999) == 123 + 999
  # p add(98,-123) == 98 + -123
-p add(-771074, -580328)
-p (-771074+-580328)
+ # p add(-90,30)
+ # p (-90 + 30)
 
 #
-# 100.times do
-#   a = (rand()*1000000).round * [1,-1].sample
-#   b = (rand()*1000000).round * [1,-1].sample
-#   if add(a,b) != (a + b)
+1000.times do
+  a = ((rand()+0.5)*1000000).round * [1,-1].sample
+  b = ((rand()+0.5)*1000000).round * [1,-1].sample
+  if add(a,b) != (a + b)
+    puts "NOT WORKING FOR #{a} and #{b}"
+  end
+end
+
+# 10.times do
+#   a = ((rand()+0.5)*1000000).round * [1,-1].sample
+#   b = ((rand()+0.5)*1000000).round * [1,-1].sample
+#   if simple(a,b) != (a + b)
 #     puts "NOT WORKING FOR #{a} and #{b}"
 #   end
 # end
