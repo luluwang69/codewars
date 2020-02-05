@@ -19,6 +19,7 @@ def simple(x,y)
   end
 end
 
+
 def convert_to_positives(digits)
   for i in 0 ... digits.length
     if digits[i] < 0
