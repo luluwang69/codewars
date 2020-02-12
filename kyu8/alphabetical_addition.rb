@@ -1,3 +1,26 @@
+def add_letters(*letters)
+hash ={}
+
+return "z" if letters.count == 0
+
+("a".."z").to_a.each_with_index{|x,i|hash[x]=i+1}
+number = letters.map{|e|hash[e]}
+if number.sum > 26
+  return hash.key (number.sum%(26))
+else
+  return  hash.key(number.sum)
+end
+end
+
+
+
+
+
+
+
+
+
+
 # def add_letters(*letters)
 # hash = {}
 # arr = []
@@ -31,21 +54,21 @@
 #   end
 # end
 
-def add_letters(*letters)
-  return 'z' if letters.count == 0
-
-  hash = {}
-  sum = 0
-
-  ("a".."z").to_a.each_with_index{|x,i| hash[x] = i + 1}
-  letters.each{ |letter| sum = sum + hash[letter] }
-
-  if sum.%(26) == 0
-    return "z"
-  else
-    return hash.key(sum.%(26))
-  end
-end
+# def add_letters(*letters)
+#   return 'z' if letters.count == 0
+#
+#   hash = {}
+#   sum = 0
+#
+#   ("a".."z").to_a.each_with_index{|x,i| hash[x] = i + 1}
+#   letters.each{ |letter| sum = sum + hash[letter] }
+#
+#   if sum.%(26) == 0
+#     return "z"
+#   else
+#     return hash.key(sum.%(26))
+#   end
+# end
 
 
 
